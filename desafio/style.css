@@ -1,0 +1,297 @@
+/* =========================================================
+   Wide coverage location — hero section
+   Baseado no Figma "13. (Positive) Congratulation..."
+   ========================================================= */
+
+:root {
+    --green: #6FBF48;
+    --green-dark: #5AA83A;
+    --mint: #DCF2CE;
+    --teal: #5FD3AC;
+    --navy: #25355C;
+    --ink: #1F2233;
+    --skin: #F1D2AF;
+    --coral: #F0885E;
+    --gold: #F4B740;
+
+    --text-title: #25355C;
+    --text-body: #8C8C8C;
+    --bg-page: #FFFFFF;
+
+    --container: 1180px;
+    --gutter: 24px;
+}
+
+/* ---------- reset básico ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    color: var(--text-body);
+    background: var(--bg-page);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------- layout base ---------- */
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+/* ---------- header / nav ---------- */
+.site-header {
+    padding-block: 28px;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-title);
+    letter-spacing: -.02em;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav__list {
+    display: flex;
+    gap: 36px;
+}
+
+.nav__list a {
+    font-size: .95rem;
+    font-weight: 500;
+    color: var(--text-title);
+    transition: color .2s;
+}
+
+.nav__list a:hover {
+    color: var(--green);
+}
+
+/* ---------- botão ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: 12px 28px;
+    border-radius: 8px;
+    transition: background-color .2s, transform .2s;
+}
+
+.btn--primary {
+    background: var(--green);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* ---------- hero ---------- */
+.hero {
+    padding-block: 40px 96px;
+}
+
+.hero__inner {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.hero__media,
+.hero__content {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.hero__img {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.hero__title {
+    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.02em;
+    color: var(--text-title);
+    margin-bottom: 24px;
+    max-width: 13ch;
+}
+
+.hero__text {
+    font-size: 1rem;
+    max-width: 400px;
+    margin-bottom: 28px;
+}
+
+.link-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: .95rem;
+    color: var(--green);
+    transition: gap .2s;
+}
+
+.link-more:hover {
+    gap: 14px;
+}
+
+/* ---------- animação sutil dos sparkles ---------- */
+.spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.spark:nth-child(2) {
+    animation-delay: .6s;
+}
+
+.spark:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.spark:nth-child(4) {
+    animation-delay: 1.8s;
+}
+
+.spark:nth-child(5) {
+    animation-delay: 2.4s;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: .35;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+/* tablet */
+@media (max-width: 900px) {
+    .hero__inner {
+        gap: 40px;
+    }
+
+    .hero__title {
+        margin-bottom: 20px;
+    }
+}
+
+/* mobile */
+@media (max-width: 720px) {
+    .site-header {
+        padding-block: 20px;
+    }
+
+    .header__inner {
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .nav__list {
+        display: none;
+    }
+
+    .btn {
+        padding: 10px 22px;
+    }
+
+    .hero {
+        padding-block: 24px 56px;
+        text-align: center;
+    }
+
+    /* texto em cima, ilustração embaixo (como no Figma mobile) */
+    .hero__inner {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .hero__title {
+        font-size: clamp(1.9rem, 8vw, 2.4rem);
+        max-width: none;
+        margin-inline: auto;
+    }
+
+    .hero__text {
+        margin-inline: auto;
+    }
+
+    /* ilustração dentro de um círculo verde */
+    .hero__media {
+        width: 300px;
+        max-width: 80%;
+        aspect-ratio: 1;
+        background: var(--mint);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+    }
+
+    .hero__img ellipse {
+        display: none;
+        /* já temos o círculo do container */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spark {
+        animation: none;
+        opacity: .8;
+    }
+}
